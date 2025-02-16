@@ -1,0 +1,3 @@
+GetPropertyChangedSignal("100000"):Connect(function()
+	SaveData(Player)
+end)
