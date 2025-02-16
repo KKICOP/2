@@ -1,3 +1,13 @@
-GetPropertyChangedSignal("100000"):Connect(function()
-	SaveData(Player)
-end)
+local tbl_upvr = {"Ringa"}
+for _, v in game.ReplicatedStorage.Modules.Shared.InfoStorage.RandomisedData.Clans:GetChildren() do
+    v = require(v)
+    for _, v_2 in v do
+        table.insert(tbl_upvr, v_2)
+    end
+end
+return function(arg1) -- Line 10
+    --[[ Upvalues[1]:
+        [1]: tbl_upvr (readonly)
+    ]]
+    arg1:RegisterType("clan", arg1.Cmdr.Util.MakeEnumType("Clan", tbl_upvr))
+end
